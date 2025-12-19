@@ -9,16 +9,26 @@ with st.sidebar:
 
 if dark:
     bg, cd, tx, br, hv = "#0e1117", "#161b22", "white", "#30363d", "#007bff"
-    sb_bg = "#161b22" # Fond de la barre latérale en sombre
+    sb_bg = "#161b22"
+    btn_tx = "#0e1117" # Texte noir pour bouton blanc en mode sombre
 else:
     bg, cd, tx, br, hv = "#f8f9fa", "white", "black", "#eee", "red"
-    sb_bg = "#f0f2f6" # Fond de la barre latérale en clair
+    sb_bg = "#f0f2f6"
+    btn_tx = "white" # Texte blanc pour bouton coloré en mode clair
 
 st.markdown(f"""<style>
 /* Fond de l'app et de la Sidebar */
 .stApp {{ background-color: {bg}; color: {tx}; }}
 [data-testid="stSidebar"] {{ background-color: {sb_bg}; }}
 [data-testid="stSidebar"] * {{ color: {tx} !important; }}
+
+/* Correction des boutons */
+.stButton>button {{
+    background-color: {tx} !important; /* Bouton blanc en dark, noir en light */
+    color: {btn_tx} !important;    /* Texte noir en dark, blanc en light */
+    border: none;
+    font-weight: bold;
+}}
 
 /* Style des cartes */
 .card {{ background:{cd}; padding:10px; border-radius:10px; 
@@ -30,7 +40,7 @@ align-items: center; text-decoration:none!important; }}
 .icon {{ font-size:20px; }}
 .title {{ font-size:11px; font-weight:bold; }}
 
-/* Forcer la couleur du texte partout */
+/* Forcer la couleur du texte partout sauf boutons */
 h1, h2, h3, p, span, label, a {{ color: {tx} !important; 
 text-decoration:none!important; }}
 </style>""", unsafe_allow_html=True)
@@ -70,18 +80,4 @@ apps = [
     ("IA Discovery", "🔍", "ia-discovery-tool-exipby6qyeqodoryc8p7kj"),
     ("Objection", "🛡️", "objection-crusher-eickr9egabodnbspah7zgh"),
     ("KPI Tracker", "📈", "sales-kpi-tracker-gemm7zlpac7rv5hdkfyesy"),
-    ("Simu Salaire", "🤖", "simulateuria-4geraztakpppefxpsvfp5z"),
-    ("Account Mgr", "🤝", "account-manager-ia-hwtkfcycxcxcgqtxrhyrez")
-]
-
-cols = st.columns(4)
-for i, (name, icon, url) in enumerate(apps):
-    with cols[i % 4]:
-        link = f"https://{url}{s}"
-        html = f"""<a href="{link}" target="_blank">
-        <div class="card">
-        <div class="icon">{icon}</div>
-        <div class="title">{name}</div>
-        </div></a>"""
-        st.markdown(html, unsafe_allow_html=True)
-        st.write("")
+    ("
