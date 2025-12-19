@@ -34,6 +34,10 @@ st.markdown(f"""
     height:120px; 
     transition: 0.3s;
     color: {text_color};
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 }}
 .card:hover {{
     border-color:{hover_color}; 
@@ -82,4 +86,13 @@ s = ".streamlit.app/"
 u1 = b + "cv-optimizer-pro-idiwl9xcvopi6orfgqyhjp" + s
 u2 = b + "freelancevscollab-" + "tcjdkokhjktthqet9emwd2" + s
 u3 = b + "go-nogo-ao-" + "guljf7vfdgd8gwbwk2czss" + s
-u4 =
+u4 = b + "ia-discovery-tool-" + "exipby6qyeqodoryc8p7kj" + s
+u5 = b + "objection-crusher-" + "eickr9egabodnbspah7zgh" + s
+u6 = b + "sales-kpi-tracker-" + "gemm7zlpac7rv5hdkfyesy" + s
+u7 = b + "simulateuria-" + "4geraztakpppefxpsvfp5z" + s
+u8 = b + "account-manager-ia-" + "hwtkfcycxcxcgqtxrhyrez" + s
+
+tools = [
+    ("CV Optimizer", "🎯", u1), ("Marge/Rentab", "⚖️", u2),
+    ("Go/No-Go AO", "🚦", u3), ("IA Discovery", "🔍", u4),
+    ("Objection", "
